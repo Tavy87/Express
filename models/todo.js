@@ -6,8 +6,17 @@ const todos = [
 
 module.exports = {
     getAll,
+    getOne,
 };
 
 function getAll() {
     return todos;
+}
+
+function getOne(id) {
+    // URL params are strings - convert to a number
+    id = parseInt(id);
+    // The Array.prototype.find iterator method is
+    // ideal for finding objects within an array
+    return todos.find((todo) => todo.id === id);
 }
