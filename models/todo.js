@@ -7,6 +7,7 @@ const todos = [
 module.exports = {
     getAll,
     getOne,
+    create
 };
 
 function getAll() {
@@ -19,4 +20,12 @@ function getOne(id) {
     // The Array.prototype.find iterator method is
     // ideal for finding objects within an array
     return todos.find((todo) => todo.id === id);
+}
+
+function create(todo) {
+    // add the id
+    todo.id = Date.now() % 1000000;
+    // New todos wouldn't be done
+    todo.done = false;
+    todos.push(todo);
 }
