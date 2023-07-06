@@ -1,17 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="/stylesheets/style.css" />
-        <title>Express To-Dos</title>
-    </head>
-    <body>
-        <h1>Todos</h1>
-        <ul>
-            <% todos.forEach(function(t) { %>
-            <li><a href="/todos/<%= t.id %>"><%= t.todo %></a></li>
-            <% }); %>
-        </ul>
-    </body>
-</html>
+<!-- Be sure the path is RELATIVE to this template -->
+<%- include('../partials/header') %>
+
+<ul>
+    <% todos.forEach(function(t) { %>
+        <li>
+            <a href="/todos/<%= t.id %>"><%= t.todo %></a>
+            -
+            <%= t.done ? "done" : "not done" %>
+        </li>
+    <% }) %>
+</ul>
+
+<%- include('../partials/footer') %>
